@@ -91,6 +91,7 @@ We need to allow ingress for HTTP in the security group to enable our EC2 instan
 
 ```bash
 sudo apt install python3-certbot-nginx
+
 certbot --version # check that certbot has been installed
 
 certbot --nginx -d your-dns.com #use your domain and follow the instructions prompted
