@@ -56,11 +56,11 @@ server {
     server_name your-dns.com; # Replace with your domain
 
     location / {
-        proxy_pass http://localhost:8080; # Jenkins is running on the default port
-        proxy_set_header Host $host;
-        proxy_set_header X-Real-IP $remote_addr;
-        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
-        proxy_set_header X-Forwarded-Proto $scheme;
+        proxy_pass http://localhost:8080; #Forwards incoming requests to Jenkins running on localhost:8080
+        proxy_set_header Host $host; #Sets the Host header to the value of the incoming request's Host header
+        proxy_set_header X-Real-IP $remote_addr; #Sets the X-Real-IP header to the client's IP address
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for; #Appends the client's IP to the X-Forwarded-For header
+        proxy_set_header X-Forwarded-Proto $scheme; # Sets the X-Forwarded-Proto header to the request's scheme
     }
 
     location ~ /\. {
