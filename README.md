@@ -20,7 +20,9 @@ Our setup involves utilizing
 - Nginx
 - [letsencrypt.org](http://letsencrypt.org) (SSL Certification)
 
-The Terraform EC2 user data follows [jenkins.io](https://www.jenkins.io/doc/book/installing/linux/#debianubuntu) Debian/Ubuintu installation process and has the Nginx installation. When applying our Terraform configuration, our **`.pem`** key should be inside our working directory. 
+The Terraform EC2 user data follows [jenkins.io](https://www.jenkins.io/doc/book/installing/linux/#debianubuntu) Debian/Ubuintu installation process and has the Nginx installation. 
+
+When applying our Terraform configuration, our **`.pem`** key should be inside our working directory. 
 
 ![key_example.png](images/key_example.png)
 
