@@ -22,7 +22,7 @@ Our setup involves utilizing
 
 The Terraform EC2 user data follows [jenkins.io](https://www.jenkins.io/doc/book/installing/linux/#debianubuntu) Debian/Ubuintu installation process and has the Nginx installation. When applying our Terraform configuration, our **`.pem`** key should be inside our working directory. 
 
-![key_example.png](Reverse%20Proxy%20Jenkins%20on%20EC2%20With%20Nginx%20d956f370a22349a094e7d311d0e6f870/key_example.png)
+![key_example.png](images/key_example.png)
 
 We can utilize the output IP to verify the functioning of Nginx through HTTP and confirm the operational status of Jenkins on port 8080. (I'd suggest attaching an Elastic IP to your EC2 instance, especially for extended use; it's a safer option compared to using a public IP.) 
 
@@ -83,7 +83,7 @@ sudo systemctl restart nginx
 
 When  accessing our domain name, we should reach our Jenkins server. However, you will notice a warning regarding the security of our Jenkins server, it's because HTTPS hasn't been set up yet. To secure our EC2 instance, we'll apply an SSL certificate using Let's Encrypt's Certbot.
 
-![notsecure_jenkins.png](Reverse%20Proxy%20Jenkins%20on%20EC2%20With%20Nginx%20d956f370a22349a094e7d311d0e6f870/notsecure_jenkins.png)
+![notsecure_jenkins.png](images/notsecure_jenkins.png)
 
 We need to allow ingress for HTTP in the security group to enable our EC2 instance to connect with Let's Encrypt. Change the IP range if it's set to your private IP; this can be updated later.
 
@@ -96,4 +96,4 @@ certbot --nginx -d your-dns.com #use your domain and follow the instructions pro
 
 We now have an EC2 Jenkins instance secured with HTTPS, thanks to the Nginx reverse proxy.
 
-![secure_jenkins.png](Reverse%20Proxy%20Jenkins%20on%20EC2%20With%20Nginx%20d956f370a22349a094e7d311d0e6f870/secure_jenkins.png)
+![secure_jenkins.png](images/secure_jenkins.png)
